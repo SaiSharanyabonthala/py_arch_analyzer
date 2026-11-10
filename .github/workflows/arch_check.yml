@@ -1,0 +1,27 @@
+name: Architecture Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  check-architecture:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Analyzer
+        run: |
+          pip install .
+
+      - name: Run Architecture Linter
+        run: |
+          arch-analyze . --fail-on-cycle
