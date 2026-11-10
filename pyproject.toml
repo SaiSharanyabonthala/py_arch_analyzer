@@ -9,7 +9,8 @@ description = "Static architecture and dependency cycle analyzer for Python"
 dependencies = [
     "networkx>=3.0",
     "rich>=13.0",
-    "click>=8.0"
+    "click>=8.0",
+    "pyvis>=0.3.2"
 ]
 
 [project.scripts]
